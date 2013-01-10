@@ -1,0 +1,24 @@
+{
+  "name": "ng/symfony-extra",
+  "description": "Add other extends to base symfony packages.",
+  "keywords": ["symfony", "extensions", "xml response", "symfony extra"],
+  "homepage": "http://github.com/ZhukV/NGSymfonyExtra",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vitaliy Zhuk",
+      "email": "zhuk2205@gmail.com"
+    }
+  ],
+
+  "require": {
+    "php": ">=5.3.2",
+    "symfony/http-foundation": "2.*",
+    "symfony/translation": "2.*"
+  },
+
+  "autoload": {
+    "psr-0": { "NG\\SymfonyExtra": "src/" }
+  }
+}
