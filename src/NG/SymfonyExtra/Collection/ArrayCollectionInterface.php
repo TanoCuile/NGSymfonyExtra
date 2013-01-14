@@ -45,4 +45,19 @@ interface ArrayCollectionInterface extends CollectionInterface
      * @alias: usort
      */
     public function usort($callback);
+
+    /**
+     * @alias: uksort
+     */
+    public function uksort($callback);
+
+    /**
+     * @alias: ksort
+     */
+    public function ksort($sortFlags);
+
+    /**
+     * @alias: krsort
+     */
+    public function krsort($sortFlags);
 }

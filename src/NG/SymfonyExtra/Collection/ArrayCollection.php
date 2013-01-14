@@ -83,4 +83,32 @@ class ArrayCollection extends Collection implements ArrayCollectionInterface
 
         return usort($this->_storage, $callback);
     }
+
+    /**
+     * @{inergitDoc}
+     */
+    public function uksort($callback)
+    {
+        if (!is_callable($callback)) {
+            throw new \InvalidArgumentException('Callback must be a callable');
+        }
+
+        return uksort($this->_storage, $callback);
+    }
+
+    /**
+     * @{inerhitDoc}
+     */
+    public function ksort($sortFlags = SORT_REGULAR)
+    {
+        return ksort($this->_storage, $sortFlags);
+    }
+
+    /**
+     * @{inerhitDoc}
+     */
+    public function krsort ($sortFlags = SORT_REGULAR)
+    {
+        return krsort($this->_storage, $sortFlags);
+    }
 }
