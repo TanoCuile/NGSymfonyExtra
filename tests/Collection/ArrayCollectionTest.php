@@ -90,4 +90,52 @@ class ArrayCollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($first == 'u1');
         $this->assertTrue(count($collection) == 3);
     }
+
+    /**
+     * Test sorting
+     */
+    public function testCollectionSorting()
+    {
+        // Test usort
+        $collection = new ArrayCollection(array(2, 1, 4, 3));
+
+        $collection->usort(function($a, $b) {
+            if ($a == $b) {
+                return 0;
+            }
+
+            return $a < $b ? -1 : 1;
+        });
+
+        $first = $collection->shift();
+        $this->assertEquals($first, 1);
+
+        $last = $collection->pop();
+        $this->assertEquals($last, 4);
+
+        // Test uasort
+        $collection = new ArrayCollection(array('key2' => 2, 'key1' => 1, 'key4' => 4, 'key3' => 3));
+
+        $collection->uasort(function($a, $b) {
+            if ($a == $b) {
+                return 0;
+            }
+
+            return $a < $b ? -1 : 1;
+        });
+
+        $storage = $collection->all();
+
+        list ($firstKey, $firstValue) = each ($storage);
+
+        $this->assertEquals($firstKey, 'key1');
+        $this->assertEquals($firstValue, 1);
+
+        for ($i = 1; $i <= 3; $i++) {
+            list ($lastKey, $lastValue) = each ($storage);
+        }
+
+        $this->assertEquals($lastKey, 'key4');
+        $this->assertEquals($lastValue, 4);
+    }
 }

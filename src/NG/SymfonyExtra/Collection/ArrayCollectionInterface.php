@@ -35,4 +35,14 @@ interface ArrayCollectionInterface extends CollectionInterface
      * @alias: array_push
      */
     public function push();
+
+    /**
+     * @alias: uasort
+     */
+    public function uasort($callback);
+
+    /**
+     * @alias: usort
+     */
+    public function usort($callback);
 }

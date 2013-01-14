@@ -59,4 +59,28 @@ class ArrayCollection extends Collection implements ArrayCollectionInterface
 
         return count($this->_storage);
     }
+
+    /**
+     * @{inerhitDoc}
+     */
+    public function uasort($callback)
+    {
+        if (!is_callable($callback)) {
+            throw new \InvalidArgumentException('Callback must be a callable.');
+        }
+
+        return uasort($this->_storage, $callback);
+    }
+
+    /**
+     * @{inerhitDoc}
+     */
+    public function usort($callback)
+    {
+        if (!is_callable($callback)) {
+            throw new \InvalidArgumentException('Callback must be a callable.');
+        }
+
+        return usort($this->_storage, $callback);
+    }
 }
